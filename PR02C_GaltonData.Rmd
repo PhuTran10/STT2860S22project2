@@ -81,33 +81,22 @@ Load the three Galton datasets and use `glimpse()` to explore their structures. 
    * ascending order of familyid
    * sons before daughters within family
    * in order of height within each sex of child
-   
 
 ```{r assembledata1}
-subc <- sub %>% mutate(FamilyID = as.character(FamilyID))
-
-DATA <- bind_rows(main, subc) %>% inner_join(notebook)
-
-assembleddata1 <- DATA %>%
+assembleddata1 <- main %>%
    mutate(
-      familyID = as.numeric(ifelse(FamilyID == "136A", 205, FamilyID)),
-      MotherT = Mother * 1.08,
-      midparent = (Father + MotherT) /  2,
-      HeightT = ifelse(Child == "Daughter", Height * 1.08, Height)) %>%
+      familyID = as.numeric(ifelse(FamilyID == "136A", 205, FamilyID)))
     select(
        familyID,
-       notebook = Page,
+       page = notebook,
        num_children = Children,
        father_ht = Father,
        mother_ht = MotherT,
        midparent,
-       child_sex = Child,
-       child_ht = HeightT) %>%
-  arrange(familyID, desc(child_sex), child_ht)
-
-glimpse(assembleddata1)
-head(assembleddata1)
-
+       child_sex,
+       child_ht
+    )
+glimpse(assembledata1)
 ```
 
 #### Dataset #2
@@ -115,13 +104,11 @@ head(assembleddata1)
 From Dataset #1, select the variables `familyid` and `num_children`, then reduce the dataset so it contains only one unique row per family. Use `glimpse()` to display the result. (Hint: The final dataset should have 205 rows/observations and two variables/columns.)
 
 ```{r assembledata2}
-assembledata2 <- assembleddata1 %>%
+assembledata2 <- 
+   
    select(familyID,
-          num_children) %>%
-    unique()
- 
-glimpse(assembledata2)
-
+          num_children)
+glimpse(assembleddata2)
 ```
 
 ### Visualization 1: Updated Scatterplot
@@ -155,21 +142,7 @@ Include the following.
 * use `theme()` to move the legend to the bottom of the scatterplot
 
 ```{r updatedscatterplot}
-ggplot(assembleddata1, aes(x = child_ht, y = midparent, color = child_sex)) +
-  geom_point(size = 2, alpha = 0.39) +
-  scale_color_manual(values = c("Green", "Orange")) +  
-  coord_fixed(ratio = 1) +  
-  theme_linedraw() +
-  theme(legend.position = "bottom") + 
-  labs(title = "Child versus MidParent Height", color = "Gender of Child",
-       x = "Child Height in Inches",
-       y = "Midparent Height in Inches") +
-  scale_x_continuous(breaks = seq(60, 80, 1)) +
-  scale_y_continuous(breaks = seq(60, 80, 1))
-  
-  
-  
-
+geom_scatter()
 ```
 
 ### Visualization 2: Number of Children
@@ -179,19 +152,10 @@ ggplot(assembleddata1, aes(x = child_ht, y = midparent, color = child_sex)) +
 Create a barplot to show the distribution of the number of children per family. Set the bars to something other than the default `width`. Scale the x-axis so that there is a tick mark for each bar. Choose appropriate colors, labels, themes, and/or and other types of formatting that you feel will enhance the meaning or visual appearance of the plot.  (Hint: Use `count()` to find out how many families have a given number of children, then use that information to create your plot.)
 
 ```{r childrenbarplot}
-galton_children <- assembledata2 %>% 
-count(num_children)
-
-ggplot(galton_children, aes(x = num_children, weight = n, width = 10)) + geom_bar( color = "blue",  fill =  "skyblue") + 
-  labs(title = "Number of Children Per Family", 
-       x = "Number of Children",
-       y = "Family") + 
-  scale_x_discrete(limits = seq(1,15,1)) + 
-  scale_y_continuous(breaks = seq(0,40,2)) +
-  scale_fill_manual(values = c())
+geom_bar()
 ```
 
-
+<hr>
 
 ## Questions
 
@@ -199,19 +163,19 @@ ggplot(galton_children, aes(x = num_children, weight = n, width = 10)) + geom_ba
 
 **ANSWER**
 
-The scatterplot is an improvement over the the original diagram.  It is easier to understand for any person then the original design.  With that being said, we would like to find a way to get rid of all of the jumbled points within the graph.
+ERASE THIS TEXT AND ANSWER QUESTION HERE
 
 **Question 2:** Explain the rationale behind the choices you made when creating your scatterplot and barplot, such as size, color, transparency, or other features. What motivated your decisions? 
 
 **ANSWER**
 
-We wanted to ensure that the graphs were aesthetically pleasing to look at.  It was important that they were easy to understand for anyone who was unfamiliar with the data.  That is what motivated our scatterplot and barplot decisions.
+ERASE THIS TEXT AND ANSWER QUESTION HERE
 
 **Question 3:** Considering best practices, how does using `coord_fixed()` enhance the authenticity of the information shown in the scatterplot, such as the relationship and spread of the data?
 
 **ANSWER**
 
-It provide the space needed for the graph to show the difference in the values needed and shown. The relationship is more noticeable on the graph, when `coord_fixed()` is used. 
+ERASE THIS TEXT AND ANSWER QUESTION HERE
 
 ***
 ```{r}

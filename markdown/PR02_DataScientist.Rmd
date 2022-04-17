@@ -1,7 +1,7 @@
 ---
 title: "Becoming a Data Scientist"
 subtitle: "STT2860 S22 Project 02"
-author: "Author: YOUR NAME HERE"
+author: "Author: Phu Tran"
 date: "`r format(Sys.time(), '%A, %B %d, %Y @ %I:%M %p')`"
 output: 
   html_document: 
@@ -12,38 +12,38 @@ output:
 
 **Q1: What is the name of the person interviewed?**
 
-ANSWER:
+ANSWER: The name of the person being interviewed was David Meza.
 
 **Q2: Why did you choose the particular interview you did?**
 
-ANSWER:
+ANSWER: David went into different areas from engineering to finance. He also worked at NASA. 
 
 **Q3: Does the person consider themselves a data scientist?**
 
-ANSWER:
+ANSWER: David consider himself as a hybrid data scientist because he does different things beside data sciences. 
 
 **Q4: What is their formal and self-taught education in data science?**
 
-ANSWER:
+ANSWER: David went to University of Houston to earn a MIS degree. He started working as an undergraduate and went into financial management. In 2010, he earned a degree in Engineering Management. 
 
 **Q5: What has been their career path? Did they start off in data science?**
 
-ANSWER:
+ANSWER: David started in the computer engineering, then went into computer science and ended up shifting to information technology. He did not start off in data science.
 
 **Q6: What programs/technologies to they use when working in data science?**
 
-ANSWER:
+ANSWER: David uses Excel and Access programs when working in data science.
 
 **Q7: What is one interesting (to you) data science problem they have worked on?**
 
-ANSWER:
+ANSWER: Knowledge management is transforming data into knowledge that they can use. David trying to develop strategies by looking at case studies and databases.  
 
 **Q8: Are there any specific pieces of advice they gave that inspire/resonate with you?**
 
-ANSWER:
+ANSWER: Communicate with your team who are working on a project and make sure individuals do their tasks.
 
 **Q9: Was there anything that surprised you or that you particularly identified with?**
 
-ANSWER:
+ANSWER: No, becuase I have experienced using Excel and Access back in high school. I took that class because I like working with Microsoft programs and want to develop my skills in the real world. 
 
 ***
